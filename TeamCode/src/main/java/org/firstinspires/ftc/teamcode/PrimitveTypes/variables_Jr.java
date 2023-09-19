@@ -14,7 +14,6 @@ public class variables_Jr extends OpMode {
         int teamNumber = 16072;
         double motorSpeed = 0.5;
         boolean touchSensorPressed = true;
-
         telemetry.addData("Team Number", teamNumber);
         telemetry.addData("Motor Speed", motorSpeed);
         telemetry.addData("Touch Sensor", touchSensorPressed);
@@ -23,6 +22,12 @@ public class variables_Jr extends OpMode {
 
     @Override
     public void loop() {
+        telemetry.addData("left stick x", gamepad1.left_stick_x);
+        telemetry.addData("Left Stick y", gamepad1.left_stick_y);
+        telemetry.addData("A button", gamepad1.a);
+        telemetry.addData("B button", gamepad1.b);
+        telemetry.addData("right stick x", gamepad1.right_stick_x);
+        telemetry.addData("right Stick y", gamepad1.right_stick_y);
 
     }
 }
