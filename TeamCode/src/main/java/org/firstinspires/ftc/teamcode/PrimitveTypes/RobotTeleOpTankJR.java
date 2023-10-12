@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 
-@TeleOp
+@TeleOp(name="Robot: TeleOp Tank", group="Robot")
 public class RobotTeleOpTankJR extends OpMode{
 
     public DcMotor  leftDrive   = null;
