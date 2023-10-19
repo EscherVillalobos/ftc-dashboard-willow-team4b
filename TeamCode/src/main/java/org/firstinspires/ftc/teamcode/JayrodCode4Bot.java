@@ -33,10 +33,14 @@ public class JayrodCode4Bot extends OpMode {
         int position = arm.getCurrentPosition();
         telemetry.addData("Arm is at", position );
         if (gamepad1.dpad_up){
+            arm.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+
             //arm up code
             arm.setPower(0.2);
             telemetry.addData("Arm", "is up");
         } else if (gamepad1.dpad_down){
+            arm.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+
             //arm down code
             arm.setPower(-.2);
             telemetry.addData("Arm", "is down");
