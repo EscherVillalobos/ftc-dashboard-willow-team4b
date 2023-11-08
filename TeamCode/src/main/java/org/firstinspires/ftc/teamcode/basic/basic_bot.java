@@ -32,7 +32,7 @@ public class basic_bot extends LinearOpMode {
     public static double rightClawClosed = 0.0;
     public static int armReset = 0;
     public static int armSpeed = 200;
-
+    public int armPos;
 
     @Override
     public void runOpMode() {
@@ -67,7 +67,8 @@ public class basic_bot extends LinearOpMode {
             double leftPower;
             double rightPower;
             double drive = -gamepad1.left_stick_y;
-            double turn = gamepad1.left_stick_x;
+            double turn = gamepad1.right_stick_x;
+            armPos = armDrive.getCurrentPosition();
 
 
             leftPower = Range.clip(drive + turn, -1.0, 1.0);
@@ -76,7 +77,7 @@ public class basic_bot extends LinearOpMode {
 
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
-
+//im only human after all im only human after all dont put the blame on me dont put the blame on me
             if (gamepad1.a) {
 
                 armDrive.setTargetPosition(armTarget);
@@ -86,7 +87,7 @@ public class basic_bot extends LinearOpMode {
                 armDrive.setVelocity(armVelocity);
 
             }
-            else if (gamepad1.x) {
+            if (gamepad1.x) {
 
                 armDrive.setTargetPosition(armAway);
 
@@ -94,20 +95,12 @@ public class basic_bot extends LinearOpMode {
 
                 armDrive.setVelocity(armVelocity);
             }
-            if (gamepad1.b) {
-                armDrive.setTargetPosition(armReset);
+            if (gamepad1.y){
+                armDrive.setTargetPosition(armPos);
 
                 armDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-                armDrive.setVelocity(armSpeed);
-            }
-            else if (gamepad1.x) {
-
-                armDrive.setTargetPosition(armAway);
-
-                armDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-                armDrive.setVelocity(armVelocity);
+                armDrive.setVelocity(0);
             }
 
                 if (gamepad1.right_bumper) {
