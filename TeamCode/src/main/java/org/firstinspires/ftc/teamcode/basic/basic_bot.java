@@ -25,14 +25,13 @@ public class basic_bot extends LinearOpMode {
     public static int armTarget = 300;
     public static int armAway = -1;
     public static int armVelocity = 200;
-
+    public static int armReset = 0;
+    public static int armSpeed = 200;
+    public int armPos;
     public static double leftClawOpen = 1;
     public static double leftClawClosed = 0.0;
     public static double rightClawOpen = 1;
     public static double rightClawClosed = 0.0;
-    public static int armReset = 0;
-    public static int armSpeed = 200;
-    public int armPos;
 
     @Override
     public void runOpMode() {
@@ -93,7 +92,7 @@ public class basic_bot extends LinearOpMode {
 
                 armDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-                armDrive.setVelocity(armVelocity);
+                armDrive.setVelocity(armVelocity+200);
             }
             if (gamepad1.y){
                 armDrive.setTargetPosition(armPos);
